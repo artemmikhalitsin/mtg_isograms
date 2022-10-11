@@ -1,3 +1,4 @@
+import json
 import string
 
 def normalize_alphabetize(card):
@@ -17,31 +18,17 @@ def is_isogram(card):
 
 
 top_x = 3
-
-isograms = dict()
+isograms = []
 
 with open("all-cards.txt", "r") as list:
-    for card in list:
+    cards = json.loads(list.read())
+    for card in cards:
         ascii_alphabetized = normalize_alphabetize(card)
         result = is_isogram(ascii_alphabetized)
         if result:
-            length = len(ascii_alphabetized)
-            if length not in isograms:
-                isograms[length] = []
-            isograms[length].append(card)
-max_len = max(isograms)
+            isograms.append(card)
 
-print("Top % lengths of isograms:\n", top_x)
-
-i = 0
-while i < top_x:
-    length = max_len-i
-    print("Length %:", length)
-    print(isograms[length])
-    i = i+1
-
-total = 0
-for sublist in isograms.values():
-    total += len(sublist)
-
-print("Total isograms in Magic: %", total)
+with open("isograms.txt", "w") as output:
+    for card in isograms:
+        output.write(card)
+        output.write("\n")

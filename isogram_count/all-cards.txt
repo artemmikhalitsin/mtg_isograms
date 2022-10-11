@@ -1,3 +1,4 @@
+[
   "\"Ach! Hans, Run!\"",
   "\"Brims\" Barone, Midway Mobster",
   "\"Lifetime\" Pass Holder",
@@ -25573,3 +25574,4 @@
   "_____ _____ _____ Trespasser",
   "_____-o-saurus",
   "capital offense"
+]
